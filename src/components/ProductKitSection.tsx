@@ -1,6 +1,6 @@
-import productCase from "@/assets/product-case.jpeg";
-import productCaseOpen from "@/assets/product-case-open.jpeg";
-import installation from "@/assets/installation.jpeg";
+import kitOpen1 from "@/assets/kit-open-1.jpeg";
+import kitOpen2 from "@/assets/kit-open-2.jpeg";
+import kitOpen3 from "@/assets/kit-open-3.jpeg";
 
 const kitItems = [
   "High-Pressure Spray Gun",
@@ -30,7 +30,7 @@ const ProductKitSection = () => {
           {/* Kit Image 1 */}
           <div className="relative group">
             <img 
-              src={productCase} 
+              src={kitOpen1} 
               alt="Complete Kit in Carrying Case" 
               className="w-full h-80 object-cover rounded-2xl shadow-xl"
             />
@@ -39,7 +39,7 @@ const ProductKitSection = () => {
           {/* Kit Image 2 */}
           <div className="relative group">
             <img 
-              src={productCaseOpen} 
+              src={kitOpen2} 
               alt="Kit Contents Display" 
               className="w-full h-80 object-cover rounded-2xl shadow-xl"
             />
@@ -48,7 +48,7 @@ const ProductKitSection = () => {
           {/* Kit Image 3 */}
           <div className="relative group">
             <img 
-              src={installation} 
+              src={kitOpen3} 
               alt="Easy Installation Guide" 
               className="w-full h-80 object-cover rounded-2xl shadow-xl"
             />

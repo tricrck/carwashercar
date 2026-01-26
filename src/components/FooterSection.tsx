@@ -7,10 +7,10 @@ const FooterSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full gradient-cta flex items-center justify-center">
-              <span className="font-display font-bold text-primary-foreground">PW</span>
+              <span className="font-display font-bold text-primary-foreground">PT</span>
             </div>
             <div>
-              <span className="font-display font-bold text-foreground">PowerWash</span>
+              <span className="font-display font-bold text-foreground">PrimeTech</span>
               <p className="text-sm text-muted-foreground">Clean Faster, Work Smarter</p>
             </div>
           </div>
@@ -25,7 +25,7 @@ const FooterSection = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t border-border/30 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} PowerWash. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} PrimeTech. All rights reserved.</p>
           <p className="mt-2">Countrywide Delivery | Pay on Delivery | Same Day in Nairobi</p>
         </div>
       </div>

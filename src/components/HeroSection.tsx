@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, ShoppingCart } from "lucide-react";
-import productKit from "@/assets/product-kit.jpeg";
+import productHero from "@/assets/product-hero.jpeg";
 
 const HeroSection = () => {
   const scrollToOrder = () => {
@@ -17,9 +17,9 @@ const HeroSection = () => {
         <header className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-full gradient-cta flex items-center justify-center">
-              <span className="font-display font-bold text-primary-foreground">PW</span>
+              <span className="font-display font-bold text-primary-foreground">PT</span>
             </div>
-            <span className="font-display font-bold text-foreground">PowerWash</span>
+            <span className="font-display font-bold text-foreground">PrimeTech</span>
           </div>
           <a 
             href="tel:0797853894" 
@@ -83,8 +83,8 @@ const HeroSection = () => {
             <div className="relative">
               <div className="absolute inset-0 glow-orange rounded-3xl opacity-50" />
               <img 
-                src={productKit} 
-                alt="High Pressure Spray Gun Complete Kit" 
+                src={productHero} 
+                alt="High Pressure Spray Gun Complete Kit"
                 className="relative z-10 w-full max-w-lg rounded-3xl shadow-2xl animate-float"
               />
               {/* Price Badge */}
