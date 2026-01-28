@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Phone, ShoppingCart } from "lucide-react";
 import productHero from "@/assets/product-hero.jpeg";
+import productKitDisplay from "@/assets/product-kit-display.jpeg";
+import productFunction from "@/assets/product-function.jpeg";
+
+const heroImages = [
+  { src: productHero, alt: "High Pressure Spray Gun Complete Kit" },
+  { src: productKitDisplay, alt: "Complete Kit with 2 Batteries and Charger" },
+  { src: productFunction, alt: "Function Display - Spray Gun Features" },
+];
 
 const HeroSection = () => {
   const scrollToOrder = () => {
@@ -31,7 +39,7 @@ const HeroSection = () => {
         </header>
 
         {/* Hero Content */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-200px)]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6 animate-fade-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
@@ -78,18 +86,37 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Product Image */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="absolute inset-0 glow-orange rounded-3xl opacity-50" />
-              <img 
-                src={productHero} 
-                alt="High Pressure Spray Gun Complete Kit"
-                className="relative z-10 w-full max-w-lg rounded-3xl shadow-2xl animate-float"
-              />
-              {/* Price Badge */}
-              <div className="absolute -bottom-4 -left-4 z-20 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-display font-bold text-xl shadow-lg">
-                Ksh 4,999
+          {/* Product Images Grid */}
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-4">
+              {/* Main large image */}
+              <div className="col-span-2 relative">
+                <div className="absolute inset-0 glow-orange rounded-2xl opacity-50" />
+                <img 
+                  src={heroImages[0].src} 
+                  alt={heroImages[0].alt}
+                  className="relative z-10 w-full rounded-2xl shadow-2xl object-cover aspect-video"
+                />
+                {/* Price Badge */}
+                <div className="absolute -bottom-3 -left-3 z-20 bg-primary text-primary-foreground px-5 py-2 rounded-xl font-display font-bold text-lg shadow-lg">
+                  Ksh 4,999
+                </div>
+              </div>
+              
+              {/* Two smaller images */}
+              <div className="relative group">
+                <img 
+                  src={heroImages[1].src} 
+                  alt={heroImages[1].alt}
+                  className="w-full rounded-xl shadow-lg object-cover aspect-square group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="relative group">
+                <img 
+                  src={heroImages[2].src} 
+                  alt={heroImages[2].alt}
+                  className="w-full rounded-xl shadow-lg object-cover aspect-square group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
             </div>
           </div>
