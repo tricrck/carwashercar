@@ -54,7 +54,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-lg text-muted-foreground max-w-lg">
-              Transform your cleaning routine with a powerful, versatile and portable solution for automotive, home, garden, and outdoor cleaning tasks.
+              This cordless, battery-powered pressure washer delivers strong water pressure for effective cleaning at home or on the go. Its lightweight, compact design makes it easy to carry and use anywhere no power outlets or cords required. Equipped with a multifunctional adjustable nozzle, you can switch effortlessly between high pressure direct spray, wide fan spray, or gentle shower mode to handle everything from car washing to outdoor and household cleaning.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">

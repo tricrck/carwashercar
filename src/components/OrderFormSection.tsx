@@ -4,12 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Truck, CreditCard, Clock, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const OrderFormSection = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
     altPhone: "",
+    location: "",
     additionalInfo: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,10 +26,10 @@ const OrderFormSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.fullName.trim() || !formData.phone.trim()) {
+    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.location.trim()) {
       toast({
         title: "Missing Information",
-        description: "Please fill in your full name and phone number.",
+        description: "Please fill in your full name, phone number, and location.",
         variant: "destructive",
       });
       return;
@@ -35,21 +37,44 @@ const OrderFormSection = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Order Submitted! 🎉",
-      description: "We'll call you shortly to confirm your order.",
-    });
-    
-    setFormData({
-      fullName: "",
-      phone: "",
-      altPhone: "",
-      additionalInfo: "",
-    });
-    setIsSubmitting(false);
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target as HTMLFormElement,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      
+      // Track conversion event
+      if (window.gtag) {
+        window.gtag('event', 'form_submit', {
+          form_type: 'order',
+          location: formData.location,
+        });
+      }
+      
+      toast({
+        title: "Order Submitted! 🎉",
+        description: "We'll call you shortly to confirm your order.",
+      });
+      
+      setFormData({
+        fullName: "",
+        phone: "",
+        altPhone: "",
+        location: "",
+        additionalInfo: "",
+      });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Submission Error",
+        description: "There was an error submitting your order. Please try again or call us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -162,6 +187,21 @@ const OrderFormSection = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="e.g. 0712345678"
+                  className="bg-secondary/50 border-border"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="location" className="block text-sm font-medium text-foreground mb-2">
+                  Location *
+                </label>
+                <Input
+                  id="location"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder="e.g. Nairobi, Westlands"
                   className="bg-secondary/50 border-border"
                   required
                 />
