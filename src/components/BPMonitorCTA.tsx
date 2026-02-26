@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShoppingCart, Phone, Check, Package, Truck, CreditCard, Clock } from "lucide-react";
+import { ShoppingCart, Phone, Package, Truck, CreditCard, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const deliveryInfo = [

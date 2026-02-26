@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { ShoppingCart, Phone, Check } from "lucide-react";
+import { ShoppingCart, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/bp-monitor-daily.jpeg";
 
-const badges = ["Countrywide Delivery", "Pay on Delivery", "Same Day in Nairobi"];
+// const badges = ["Countrywide Delivery", "Pay on Delivery", "Same Day in Nairobi"];
 
 const BPMonitorHero = () => {
     const scrollToOrder = () => {
