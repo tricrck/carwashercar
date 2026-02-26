@@ -21,22 +21,7 @@ const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-r from-primary/10 via-transparent to-transparent blur-3xl" />
       
       <div className="container relative z-10 pt-8 pb-16">
-        {/* Header */}
-        <header className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full gradient-cta flex items-center justify-center">
-              <span className="font-display font-bold text-primary-foreground">PT</span>
-            </div>
-            <span className="font-display font-bold text-foreground">PrimeTech</span>
-          </div>
-          <a 
-            href="tel:0797853894" 
-            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            <span className="hidden sm:inline">0797853894</span>
-          </a>
-        </header>
+        
 
         {/* Hero Content */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">

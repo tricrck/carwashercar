@@ -6,7 +6,37 @@ import { Phone, Truck, CreditCard, Clock, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 
-const OrderFormSection = () => {
+type Product = "original" | "bpmonitor";
+
+const PRODUCT_CONFIG: Record<Product, {
+  title: string;
+  subtitle: string;
+  price: string;
+  originalPrice: string;
+  savings: string;
+  formTitle: string;
+}> = {
+  original: {
+    title: "Order Now & Save!",
+    subtitle: "Experience effortless cleaning today with our special offer price.",
+    price: "Ksh 4,999",
+    originalPrice: "Ksh 7,999",
+    savings: "Save Ksh 3,000! 🔥",
+    formTitle: "Fill Your Details to Place Order",
+  },
+  bpmonitor: {
+    title: "Order Now & Save!",
+    subtitle: "Monitor your blood pressure from the comfort of your home.",
+    price: "Ksh 2,500",
+    originalPrice: "",
+    savings: "",
+    formTitle: "Fill Your Details to Place Order",
+  },
+};
+
+const OrderFormSection = ({ activePage }: { activePage: Product }) => {
+  const product = PRODUCT_CONFIG[activePage];
+
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -49,6 +79,7 @@ const OrderFormSection = () => {
       if (window.gtag) {
         window.gtag('event', 'form_submit', {
           form_type: 'order',
+          product: activePage,
           location: formData.location,
         });
       }
@@ -85,21 +116,19 @@ const OrderFormSection = () => {
           <div className="space-y-8">
             <div>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                👉 Order Now &{" "}
+                👉 {product.title.split("&")[0]}&{" "}
                 <span className="text-gradient">Save!</span>
               </h2>
-              <p className="text-muted-foreground">
-                Experience effortless cleaning today with our special offer price.
-              </p>
+              <p className="text-muted-foreground">{product.subtitle}</p>
             </div>
 
             {/* Price Card */}
             <div className="gradient-card p-8 rounded-3xl border border-primary/30 glow-orange">
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="font-display text-5xl font-black text-primary">Ksh 4,999</span>
-                <span className="text-muted-foreground line-through">Ksh 7,999</span>
+                <span className="font-display text-5xl font-black text-primary">{product.price}</span>
+                <span className="text-muted-foreground line-through">{product.originalPrice}</span>
               </div>
-              <p className="text-green-500 font-semibold">Save Ksh 3,000! 🔥</p>
+              <p className="text-green-500 font-semibold">{product.savings}</p>
             </div>
 
             {/* Delivery Info */}
@@ -157,10 +186,13 @@ const OrderFormSection = () => {
           {/* Order Form */}
           <div className="gradient-card p-8 rounded-3xl border border-border/50 card-shadow">
             <h3 className="font-display font-bold text-2xl mb-6">
-              Fill Your Details to Place Order
+              {product.formTitle}
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Hidden field so EmailJS knows which product was ordered */}
+              <input type="hidden" name="product" value={activePage} />
+
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium text-foreground mb-2">
                   Full Name *
