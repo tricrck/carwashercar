@@ -7,7 +7,7 @@ interface Props { product: Product }
 
 const CTASection = ({ product }: Props) => {
   const { product: info } = product;
-  const { price, delivery, contact, name } = info;
+  const { price, delivery, contact } = info;
 
   const whatsappHref = contact.whatsapp
     ? `https://wa.me/${contact.whatsapp}${
