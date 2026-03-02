@@ -124,11 +124,6 @@ export const pressureWasher: Product = {
       alt: "Kit Contents Display",
       section: "kit",
     },
-    {
-      src: Images.kitOpen3,
-      alt: "Easy Installation Guide",
-      section: "kit",
-    },
     // UseCasesSection.tsx
     {
       src: Images.useCases,
@@ -193,16 +188,7 @@ export const pressureWasher: Product = {
     "Battery Charger",
     "Carrying Case",
   ],
-  useCases: [
-    "Cars & Vehicles",
-    "Home Exteriors",
-    "Garden & Plants",
-    "Driveways & Patios",
-    "Outdoor Furniture",
-    "Bikes & Motorcycles",
-    "Floor Mats",
-    "Construction Equipment",
-  ],
+  useCases: [],
   customerBenefits: [
     "Cordless convenience meets electric-grade power",
     "Adjustable modes for every cleaning need",
