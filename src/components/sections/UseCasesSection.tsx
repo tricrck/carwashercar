@@ -49,7 +49,7 @@ const UseCasesSection = ({ product }: Props) => {
         )}
 
         {/* Applications grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {useCases.map((item, i) => {
             const emoji = USE_CASE_EMOJIS[item] ?? "✅";
             return (

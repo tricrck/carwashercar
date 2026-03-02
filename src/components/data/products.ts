@@ -188,7 +188,16 @@ export const pressureWasher: Product = {
     "Battery Charger",
     "Carrying Case",
   ],
-  useCases: [],
+  useCases: [
+    "Cars & Vehicles",
+    "Home Exteriors",
+    "Garden & Plants",
+    "Driveways & Patios",
+    "Outdoor Furniture",
+    "Bikes & Motorcycles",
+    "Floor Mats",
+    "Construction Equipment",
+  ],
   customerBenefits: [
     "Cordless convenience meets electric-grade power",
     "Adjustable modes for every cleaning need",
