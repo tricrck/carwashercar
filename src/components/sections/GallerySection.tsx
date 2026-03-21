@@ -9,10 +9,10 @@ const GallerySection = ({ product }: Props) => {
   if (!galleryImages.length) return null;
 
   const colClass =
-    galleryImages.length <= 2 ? "grid-cols-2" :
-    galleryImages.length === 3 ? "grid-cols-2 md:grid-cols-3" :
-    galleryImages.length === 4 ? "grid-cols-2 md:grid-cols-4" :
-    "grid-cols-2 md:grid-cols-3 lg:grid-cols-5";
+  galleryImages.length <= 2 ? "grid-cols-1 md:grid-cols-2" :
+  galleryImages.length === 3 ? "grid-cols-1 md:grid-cols-3" :
+  galleryImages.length === 4 ? "grid-cols-1 md:grid-cols-4" :
+  "grid-cols-1 md:grid-cols-3 lg:grid-cols-5";
 
   return (
     <section className="border-b border-border py-12">

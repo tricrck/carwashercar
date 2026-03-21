@@ -122,7 +122,7 @@ const HeroSection = ({ product, interval = 4000 }: HeroSectionProps) => {
                   src={img.src}
                   alt={img.alt}
                   className={cn(
-                    "relative z-10 w-full object-cover aspect-video rounded-2xl shadow-2xl transition-all duration-700",
+                    "relative z-10 w-full object-contain max-h-[70vh] mx-auto rounded-2xl shadow-2xl transition-all duration-700",
                     i === activeIndex
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-[0.98] absolute inset-0",
@@ -176,7 +176,7 @@ const HeroSection = ({ product, interval = 4000 }: HeroSectionProps) => {
 
             {/* Thumbnail strip */}
             {heroImages.length > 1 && (
-              <div className="grid grid-cols-3 gap-3 mt-4">
+              <div className="hidden md:grid grid-cols-3 gap-3 mt-4">
                 {heroImages.map((img, i) => (
                   <button
                     key={img.src}

@@ -41,7 +41,7 @@ const UseCasesSection = ({ product }: Props) => {
                 <img
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-full object-cover rounded-3xl shadow-2xl"
+                  className="w-full object-contain max-h-[70vh] mx-auto rounded-3xl shadow-2xl"
                 />
               </div>
             ))}

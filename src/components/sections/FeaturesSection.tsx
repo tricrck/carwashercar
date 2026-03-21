@@ -95,7 +95,7 @@ const FeaturesSection = ({ product }: Props) => {
               <img
                 src={sprayImage.src}
                 alt={sprayImage.alt}
-                className="relative z-10 w-full rounded-3xl shadow-2xl"
+                className="relative z-10 w-full object-contain max-h-[70vh] mx-auto rounded-3xl shadow-2xl"
               />
             </div>
           </div>

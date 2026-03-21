@@ -33,7 +33,7 @@ const ProductKitSection = ({ product }: Props) => {
                 <img
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-80 object-cover rounded-2xl shadow-xl group-hover:scale-[1.02] transition-transform duration-300"
+                  className="w-full object-contain max-h-[70vh] mx-auto rounded-2xl shadow-xl group-hover:scale-[1.02] transition-transform duration-300"
                 />
               </div>
             ))}

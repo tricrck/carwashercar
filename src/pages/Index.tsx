@@ -29,7 +29,7 @@ const ProductCard = ({ product }: { product: Product }) => {
           <img
             src={thumbnail.src}
             alt={thumbnail.alt}
-            className="w-full object-cover aspect-video group-hover:scale-105 transition-transform duration-500"
+            className="w-full object-contain max-h-[70vh] mx-auto group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <div className="w-full aspect-video bg-secondary/50 flex items-center justify-center">
