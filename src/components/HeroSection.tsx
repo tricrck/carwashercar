@@ -37,16 +37,26 @@ const HeroSection = ({ product, interval = 4000 }: HeroSectionProps) => {
     const targetId = `order-form`;
     const isOnProductPage = location.pathname === `/${product.id}`;
 
+    const scrollWithOffset = () => {
+      const el = document.getElementById(targetId);
+      if (!el) return;
+
+      const y = el.getBoundingClientRect().top + window.scrollY - 75;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    };
+
     if (isOnProductPage) {
       // Already on the right page — just scroll
-      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+      scrollWithOffset();
     } else {
       // Navigate to the product page, then scroll once it renders
       navigate(`/${product.id}`);
       // Small delay to allow the page to mount before scrolling
-      setTimeout(() => {
-        document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
-      }, 300);
+      setTimeout(scrollWithOffset, 300);
     }
   };
 

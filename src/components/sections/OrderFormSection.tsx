@@ -104,7 +104,7 @@ const OrderFormSection = ({ product }: Props) => {
   };
 
   return (
-    <section id={`order-form`} className="py-20 bg-navy-dark relative">
+    <section className="py-20 bg-navy-dark relative">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
 
@@ -191,7 +191,7 @@ const OrderFormSection = ({ product }: Props) => {
           </div>
 
           {/* ── Right: Order Form ────────────────────────────── */}
-          <div className="gradient-card p-8 rounded-3xl border border-border/50 card-shadow">
+          <div id={`order-form`} className="gradient-card p-8 rounded-3xl border border-border/50 card-shadow">
             <h3 className="font-display font-bold text-2xl mb-6">
               Fill Your Details to Place Order
             </h3>
